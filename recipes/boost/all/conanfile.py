@@ -867,8 +867,10 @@ class BoostConan(ConanFile):
                 self.cpp_info.defines.append("BOOST_ERROR_CODE_HEADER_ONLY")
 
             if not self.options.without_python:
+                self.cpp_info.includedirs.extend([self._python_includes])
                 if not self.options.shared:
                     self.cpp_info.defines.append("BOOST_PYTHON_STATIC_LIB")
+                self.user_info.python_version = self._python_version
 
             if self._is_msvc:
                 if not self.options.magic_autolink:
