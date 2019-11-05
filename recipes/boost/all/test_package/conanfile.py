@@ -17,6 +17,7 @@ class DefaultNameConan(ConanFile):
         if not self.options["boost"].without_python:
             cmake.definitions["WITH_PYTHON"] = "TRUE"
             cmake.definitions["PYTHON_VERSION"] = self.deps_user_info["boost"].python_version
+            cmake.definitions["PYTHON_LIB"] = self.deps_user_info["boost"].python_lib
 
         cmake.configure()
         cmake.build()

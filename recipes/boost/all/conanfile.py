@@ -871,6 +871,7 @@ class BoostConan(ConanFile):
                 if not self.options.shared:
                     self.cpp_info.defines.append("BOOST_PYTHON_STATIC_LIB")
                 self.user_info.python_version = self._python_version
+                self.user_info.python_lib = self._python_libraries
 
             if self._is_msvc:
                 if not self.options.magic_autolink:
