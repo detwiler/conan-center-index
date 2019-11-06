@@ -32,6 +32,8 @@ IF(NOT HEADER_ONLY)
         target_link_libraries(hello_ext ${PYTHON_LIB} ${CONAN_LIBS})
         if(WIN32)
             set_target_properties(hello_ext PROPERTIES SUFFIX ".pyd")
+        else()
+            set_target_properties(hello_ext PROPERTIES PREFIX "")
         endif()
     endif()
     ADD_TEST(NAME TestRegex

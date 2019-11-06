@@ -30,5 +30,5 @@ class DefaultNameConan(ConanFile):
         if not self.options["boost"].without_python:
             os.chdir("lib")
             sys.path.append(".")
-            import libhello_ext
-            libhello_ext.greet()
+            import hello_ext
+            hello_ext.greet()
