@@ -28,7 +28,8 @@ class DefaultNameConan(ConanFile):
         bt = self.settings.build_type
         self.run('ctest --output-on-error -C %s' % bt, run_environment=True)
         if not self.options["boost"].without_python:
-            os.chdir("lib")
+            moddir = "bin" if self.settings.os == "Windows" else "lib"
+            os.chdir(moddir)
             sys.path.append(".")
             import hello_ext
             hello_ext.greet()
